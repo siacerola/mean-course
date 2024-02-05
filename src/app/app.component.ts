@@ -7,8 +7,8 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
-    RouterOutlet, 
+    CommonModule,
+    RouterOutlet,
     PostCreateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
