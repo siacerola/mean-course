@@ -1,4 +1,6 @@
 <label for="textarea">this is text area</label>
-<textarea name="" id="textarea" cols="30" rows="10"></textarea>
+<br>
+<textarea name="" id="textarea" cols="30" rows="10" [value]="newPost"></textarea>
 <hr>
 <button (click)="onAddPost()">save post</button>
+<p>{{newPost}}</p>
