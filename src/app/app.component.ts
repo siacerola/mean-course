@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component';
+import { PostListComponent } from './posts/post-list/post-list.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     RouterOutlet,
     PostCreateComponent,
-    HeaderComponent
+    HeaderComponent,
+    PostListComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
