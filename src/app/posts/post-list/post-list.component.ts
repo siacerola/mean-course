@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgFor, NgIf } from '@angular/common';
+
 import { Post } from '../post.model';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-list',
@@ -19,5 +21,7 @@ export class PostListComponent {
   // ]
 
   @Input() posts: Post[] = [];
+  
+  constructor(public postsService: PostsService) { }
 
 }
