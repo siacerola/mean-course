@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { MatCardModule } from "@angular/material/card";
   standalone: true,
   imports: [
     FormsModule,
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatCardModule
@@ -20,10 +22,18 @@ import { MatCardModule } from "@angular/material/card";
 })
 export class PostCreateComponent {
 
-  newPost = 'no content';
-  enteredValue = ''
-  onAddPost() {
+  enteredTitle = '';
+  enteredContent = '';
 
-    this.newPost = this.enteredValue
+  @Output() postCreated = new EventEmitter();
+
+  onAddPost() {
+    let post = {
+      title: this.enteredTitle,
+      content: this.enteredContent
+    };
+    this.postCreated.emit(post);
+    console.log(post);
+
   }
 }

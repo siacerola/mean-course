@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
+import { PostListComponent, post } from './posts/post-list/post-list.component';
 
 @Component({
   selector: 'app-root',
@@ -21,4 +21,14 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 
 export class AppComponent {
   title = 'mean-course';
+
+  newPost = new post();
+  storedPosts: post[] = [];
+
+  onPostAdded(post: any) {
+    this.newPost = post
+    this.storedPosts.push(this.newPost)
+    console.log(this.storedPosts);
+    
+  }
 }

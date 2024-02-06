@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgFor, NgIf } from '@angular/common';
 
@@ -16,7 +16,8 @@ export class PostListComponent {
   //   { title: "second post", content: "this is the second post's content" },
   //   { title: "third post", content: "this is the third post's content" }
   // ]
-  posts: post[] = [];
+
+  @Input() posts: post[] = [];
 
 }
 
