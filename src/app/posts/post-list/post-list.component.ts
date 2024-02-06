@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgFor, NgIf } from '@angular/common';
+import { Post } from '../post.model';
 
 @Component({
   selector: 'app-post-list',
@@ -17,11 +18,6 @@ export class PostListComponent {
   //   { title: "third post", content: "this is the third post's content" }
   // ]
 
-  @Input() posts: post[] = [];
+  @Input() posts: Post[] = [];
 
-}
-
-export class post {
-  title?: String;
-  content?: String;
 }
