@@ -49,6 +49,13 @@ app.get('/api/posts', async (req, res, next) => {
                 posts: document
             });
         });
+});
+
+app.delete('/api/posts/:id', async (req, res, next) => {
+    await Post.deleteOne({ _id: req.params.id }).then(result => {
+        console.log(result);
+        res.status(200).json({ message: 'post deleted' })
+    })
 
 });
 
