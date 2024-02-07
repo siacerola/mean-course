@@ -4,7 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
-import { Post } from './posts/post.model';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import { Post } from './posts/post.model';
     RouterOutlet,
     PostCreateComponent,
     HeaderComponent,
-    PostListComponent
+    PostListComponent,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -22,11 +24,4 @@ import { Post } from './posts/post.model';
 
 export class AppComponent {
   title = 'mean-course';
-
-  storedPosts: Post[] = [];
-
-  onPostAdded(post: Post) {
-    this.storedPosts.push(post)
-
-  }
 }
