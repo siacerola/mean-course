@@ -7,10 +7,12 @@ import { PostsService } from '../posts.service';
 
 import { Subscription } from 'rxjs';
 
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [MatExpansionModule, NgFor, NgIf],
+  imports: [MatExpansionModule, NgFor, NgIf, MatButtonModule],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css'
 })
