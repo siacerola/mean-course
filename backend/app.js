@@ -33,11 +33,13 @@ app.post('/api/posts', async (req, res, next) => {
         title: req.body.title,
         content: req.body.content
     });
-    await post.save();
-    console.log(post);
-    res.status(201).json({
-        message: 'post added successfully'
+    await post.save().then(createdPost => {
+        res.status(201).json({
+            message: 'post added successfully',
+            postId: createdPost._id
+        });
     });
+
 });
 
 app.get('/api/posts', async (req, res, next) => {
