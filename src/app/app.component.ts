@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     PostCreateComponent,
     HeaderComponent,
     PostListComponent,
-    HttpClientModule
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
