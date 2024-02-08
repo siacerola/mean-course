@@ -5,6 +5,7 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 
+
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -16,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     PostCreateComponent,
     HeaderComponent,
     PostListComponent,
-    HttpClientModule,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
