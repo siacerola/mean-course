@@ -32,7 +32,7 @@ app.post('/api/posts', async (req, res, next) => {
     const post = new Post({
         title: req.body.title,
         content: req.body.content
-    });
+    });  
     await post.save().then(createdPost => {
         res.status(201).json({
             message: 'post added successfully',
@@ -45,7 +45,7 @@ app.post('/api/posts', async (req, res, next) => {
 app.get('/api/posts', async (req, res, next) => {
     await Post.find({})
         .then(document => {
-            console.log(document);
+            
             res.status(200).json({
                 message: 'posts fetched successfully',
                 posts: document

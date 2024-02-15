@@ -3,6 +3,10 @@ textarea {
     width: 100%;
 }
 
-button{
+button {
     width: max-content;
+}
+
+mat-card {
+    padding: 1rem;
 }
