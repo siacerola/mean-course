@@ -4,6 +4,7 @@ import { NgFor, NgIf } from '@angular/common';
 
 import { Post } from '../post.model';
 import { PostsService } from '../posts.service';
+import { RouterLink } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
@@ -12,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [MatExpansionModule, NgFor, NgIf, MatButtonModule],
+  imports: [MatExpansionModule, NgFor, NgIf, MatButtonModule, RouterLink],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css'
 })
@@ -30,7 +31,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   constructor(public postsService: PostsService) { }
 
   ngOnInit(): void {
-    this.posts = this.postsService.getPost();
+    this.posts = this.postsService.getPosts();
     this.postsService.getPostUpdateListener()
       .subscribe((posts: Post[]) => {
         this.posts = posts

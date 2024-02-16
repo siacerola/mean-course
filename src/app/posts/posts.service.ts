@@ -15,13 +15,13 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPost() {
+  getPosts() {
     this.http.get<{
       message: string,
       posts: any
     }>('http://localhost:3000/api/posts')
       .pipe(map((postData) => {
-        return postData.posts.map((post: { title: any; content: any; _id: any; }) => {
+        return postData.posts.map((post: { title: string; content: string; _id: string; }) => {
           return {
             title: post.title,
             content: post.content,
@@ -38,6 +38,10 @@ export class PostsService {
 
   getPostUpdateListener() {
     return this.postsUpdated.asObservable();
+  }
+
+  getPost(id: string) {
+    return { ...this.posts.find(p => p.id === id) };
   }
 
   addPost(title: string, content: string) {
