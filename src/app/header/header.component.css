@@ -16,3 +16,7 @@ a {
 .active-link {
     color: plum;
 }
+
+nav{
+    background-color: skyblue;
+}
