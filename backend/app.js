@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     );
     res.setHeader(
         'Access-Control-Allow-Methods',
-        "GET, POST, PATCH, DELETE, OPTIONS"
+        "GET, POST, PATCH, PUT, DELETE, OPTIONS"
     );
     next();
 })
@@ -32,7 +32,7 @@ app.post('/api/posts', async (req, res, next) => {
     const post = new Post({
         title: req.body.title,
         content: req.body.content
-    });  
+    });
     await post.save().then(createdPost => {
         res.status(201).json({
             message: 'post added successfully',
@@ -42,16 +42,39 @@ app.post('/api/posts', async (req, res, next) => {
 
 });
 
+app.put('/api/posts/:id', async (req, res, next) => {
+    let post = new Post({
+        _id: req.body.id,
+        title: req.body.title,
+        content: req.body.content
+    });
+
+    await Post.updateOne({ _id: req.params.id }, post).then(result => {
+        console.log(result);
+        res.status(200).json({ message: 'update successfull' });
+    });
+});
+
 app.get('/api/posts', async (req, res, next) => {
     await Post.find({})
         .then(document => {
-            
+
             res.status(200).json({
                 message: 'posts fetched successfully',
                 posts: document
             });
         });
 });
+
+app.get('/api/posts/:id', async (req, res, next) => {
+    await Post.findById(req.params.id).then(post => {
+        if (post) {
+            res.status(200).json(post);
+        } else {
+            res.status(404).json({ message: 'post not found' })
+        }
+    })
+})
 
 app.delete('/api/posts/:id', async (req, res, next) => {
     await Post.deleteOne({ _id: req.params.id }).then(result => {
