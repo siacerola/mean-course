@@ -2,12 +2,11 @@
     @if (isLoading) {
     <mat-spinner></mat-spinner>
     } @else {
-    <form (submit)="onSavePost(postForm)" #postForm="ngForm">
+    <form [formGroup]="form" (submit)="onSavePost()">
         <mat-form-field>
             <mat-label>post title</mat-label>
-            <input matInput placeholder="post title" name="title" type="text" [ngModel]="post?.title" required
-                minlength="3" #title="ngModel">
-            @if(title.invalid){
+            <input matInput placeholder="post title" formControlName="title" type="text">
+            @if(form.get('title')?.invalid){
             <mat-error>Please enter a post title.</mat-error>
             }
 
@@ -20,9 +19,8 @@
 
         <mat-form-field>
             <mat-label>post content</mat-label>
-            <textarea matInput id="content" placeholder="post content" name="content" rows="4" [ngModel]="post?.content"
-                required #content="ngModel"></textarea>
-            @if(content.invalid){
+            <textarea matInput id="content" placeholder="post content" formControlName="content" rows="4"></textarea>
+            @if(form.get('content')?.invalid){
             <mat-error>Please enter a post content.</mat-error>
             }
 
