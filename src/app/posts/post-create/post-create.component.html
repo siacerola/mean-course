@@ -16,6 +16,11 @@
             <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
             <input type="file" #filePicker (change)="onImagePicked($event)">
         </div>
+        <div class="image-preview">
+            @if (imagePreview!=='' && imagePreview) {
+            <img [title]="form.value.image.name" [src]="imagePreview" [alt]="form.value.title">
+            }
+        </div>
 
         <mat-form-field>
             <mat-label>post content</mat-label>
