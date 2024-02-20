@@ -1,4 +1,7 @@
 <mat-card>
+    @if (isLoading) {
+    <mat-spinner></mat-spinner>
+    } @else {
     <form (submit)="onSavePost(postForm)" #postForm="ngForm">
         <mat-form-field>
             <mat-label>post title</mat-label>
@@ -20,5 +23,6 @@
         </mat-form-field>
         <button mat-raised-button color="accent" type="submit">save post</button>
     </form>
+    }
 
 </mat-card>

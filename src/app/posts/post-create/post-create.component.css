@@ -10,3 +10,7 @@ button {
 mat-card {
     padding: 1rem;
 }
+
+mat-spinner {
+    margin: auto;
+}
